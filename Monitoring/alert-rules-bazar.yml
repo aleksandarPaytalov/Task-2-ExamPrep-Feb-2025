@@ -1,0 +1,10 @@
+groups:
+  - name: Page accessed more than 3 times
+    rules:
+      - alert: Page visits greater than 3 times
+        expr: increase(probe_success[5m]) >= 3
+        for: 10s
+        labels:
+          severity: warning
+        annotations:
+          summary: "Page was accessed for more than 3 times within the last 5 minutes"
